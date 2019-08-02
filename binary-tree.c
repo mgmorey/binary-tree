@@ -61,7 +61,7 @@ int get_height(Node* root)
     if ( root->left != NULL )
         left = get_height(root->left);
 
-    if ( root->left != NULL )
+    if ( root->right != NULL )
         right = get_height(root->right);
 
     return max(left, right) + 1;
@@ -138,9 +138,11 @@ int main(int argc, const char* argv[])
 {
     Node* root = alloc_node('A');
     root->left = alloc_node('B');
+    print_nodes(root);
     root->right = alloc_node('E');
     print_nodes(root);
     root->left->left = alloc_node('C');
+    print_nodes(root);
     root->left->right = alloc_node('D');
     print_nodes(root->left);
     print_nodes(root);
