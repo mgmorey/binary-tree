@@ -55,7 +55,6 @@ void free_node(Node* root)
 
 int get_height(Node* root)
 {
-    int height = 0;
     int left = 0;
     int right = 0;
 
@@ -65,8 +64,7 @@ int get_height(Node* root)
     if ( root->left != NULL )
         right = get_height(root->right);
 
-    height = max(left, right) + 1;
-    return height;
+    return max(left, right) + 1;
 }
 
 int get_width(Node* root)
@@ -85,8 +83,7 @@ int get_width(Node* root)
         right = get_width(root->right);
     }
 
-    width = max(width, left + right);
-    return width;
+    return max(width, left + right);
 }
 
 void print_inorder(Node* root)
