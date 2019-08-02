@@ -39,6 +39,7 @@ typedef struct _Node {
 Node* alloc_node(int value)
 {
     Node* node = calloc(1, sizeof *node);
+
     node->value = value;
     return node;
 }
@@ -119,8 +120,9 @@ void print_preorder(Node* root)
 void print_nodes(Node* root)
 {
     int height = get_height(root);
-    printf("tree height: %d\n", height);
     int width = get_width(root);
+
+    printf("tree height: %d\n", height);
     printf("tree width: %d\n", width);
     printf("tree inorder: ");
     print_inorder(root);
@@ -137,6 +139,7 @@ void print_nodes(Node* root)
 int main(int argc, const char* argv[])
 {
     Node* root = alloc_node('A');
+
     root->left = alloc_node('B');
     print_nodes(root);
     root->right = alloc_node('E');
