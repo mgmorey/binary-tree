@@ -43,13 +43,13 @@ Node* alloc_node(int value)
     return node;
 }
 
-void free_node(Node* root)
+void free_nodes(Node* root)
 {
     if ( root == NULL )
         return;
 
-    free_node(root->right);
-    free_node(root->left);
+    free_nodes(root->right);
+    free_nodes(root->left);
     free(root);
 }
 
@@ -116,7 +116,7 @@ void print_preorder(Node* root)
     print_preorder(root->right);
 }
 
-void print_node(Node* root)
+void print_nodes(Node* root)
 {
     int height = get_height(root);
     printf("tree height: %d\n", height);
@@ -139,15 +139,15 @@ int main(int argc, const char* argv[])
     Node* root = alloc_node('A');
     root->left = alloc_node('B');
     root->right = alloc_node('E');
-    print_node(root);
+    print_nodes(root);
     root->left->left = alloc_node('C');
     root->left->right = alloc_node('D');
-    print_node(root->left);
-    print_node(root);
+    print_nodes(root->left);
+    print_nodes(root);
     root->right->left = alloc_node('F');
     root->right->right = alloc_node('G');
-    print_node(root->right);
-    print_node(root);
-    free_node(root);
+    print_nodes(root->right);
+    print_nodes(root);
+    free_nodes(root);
     exit(EXIT_SUCCESS);
 }
