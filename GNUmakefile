@@ -16,6 +16,8 @@
 
 BINARY := binary-tree
 
+CFLAGS := -g -Wall
+
 all:		$(BINARY)
 
 clean:
