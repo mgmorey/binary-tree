@@ -16,7 +16,7 @@
 
 BINARY := binary-tree
 
-CFLAGS := -g -Wall
+CFLAGS := -g -Og -Wall
 
 all:		$(BINARY)
 
