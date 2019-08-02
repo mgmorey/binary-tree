@@ -22,6 +22,7 @@
 /* |   | |   | */
 /* C   D F   G */
 
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -39,6 +40,8 @@ typedef struct _Node {
 Node* alloc_node(int value)
 {
     Node* node = calloc(1, sizeof *node);
+
+    assert ( node != NULL );
 
     node->value = value;
     return node;
@@ -75,12 +78,12 @@ int get_width(Node* root)
     int width = 0;
 
     if ( root->left != NULL ) {
-        width++;
+        ++width;
         left = get_width(root->left);
     }
 
     if ( root->right != NULL ) {
-        width++;
+        ++width;
         right = get_width(root->right);
     }
 
